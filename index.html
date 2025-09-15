@@ -1,108 +1,877 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdullah</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Akhtar - Senior Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#1e293b',
+                        accent: '#3b82f6',
+                        highlight: '#06b6d4'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .skill-bar {
+            transition: width 2s ease-in-out;
+        }
+        .typing-animation {
+            border-right: 2px solid #3b82f6;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #3b82f6; }
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        .pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .skill-glow:hover {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            transform: scale(1.05);
+        }
+        .project-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        .project-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-primary text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-primary/90 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-accent">Abdullah.dev</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-accent transition-colors">About</a>
+                    <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
+                    <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+                </div>
+                <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+            </div>
+        </div>
+    </nav>
 
-  <div class="header">
-    <h1 class="name">Abdullah</h1>
-    <span class="contact">
-      Contact: 03115381762 | 
-      Email: 
-      <a href="mailto:iamabdullahakhtar@gmail.com">iamabdullahakhtar@gmail.com</a>
-    </span>
-  </div>
-
-  <div class="about-me" data-aos="fade-up">
-    <h2>About Me:</h2>
-    <p>👋 Hi, I'm <strong>Abdullah</strong>, a Full Stack Developer building clean, modern, and functional websites and software.</p>
-    <p>💡 I work on turning concepts into practical code with a focus on clarity and performance.</p>
-    <p>🖥️ I use <strong>HTML, CSS, and JavaScript</strong> to develop responsive web interfaces and dynamic user experiences.</p>
-    <p>🎮 I build 2D and simple 3D <strong>games</strong> with modern tools and engines, focusing on mechanics, performance, and design.</p>
-    <p>📱 I develop <strong>mobile applications</strong> with clean UI, smooth functionality, and real-world use cases.</p>
-    <p>🤖 I work with <strong>AI integrations</strong> using APIs and automation tools to build smart systems for websites, apps, and games.</p>
-    <p>🤝 Open to collaborations and projects where I can apply these skills effectively.</p>
-  </div>
-
-  <div class="skills-section">
-    <h2>Skills & Tools</h2>
-    <ul>
-      <li>💻 Frontend: HTML, CSS, JavaScript</li>
-      <li>🎮 Game Development: GDevelop, Godot, Unity basics</li>
-      <li>📱 App Development: Flutter, Android basics</li>
-      <li>🤖 AI Integration: OpenAI APIs, Automation</li>
-    </ul>
-  </div>
-
-  <div class="projects-section" data-aos="fade-right">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-item">
-        <h3>Inventory Management System</h3>
-        <p>Built for a local retailer with real-time stock tracking, automated low-stock alerts, and sales reporting. Reduced inventory errors by 40%.</p>
-        <p><strong>Tech:</strong> JavaScript, Node.js, MongoDB</p>
-      </div>
-      <div class="project-item">
-        <h3>Procedural Game Map Generator</h3>
-        <p>Created an algorithm that generates unique 2D game maps with balanced terrain distribution and pathfinding-ready layouts.</p>
-        <p><strong>Tech:</strong> Godot, GDScript</p>
-      </div>
-      <div class="project-item">
-        <h3>Mobile Farm Management App</h3>
-        <p>Helps small farmers track crop cycles, expenses, and yields. Offline-capable with cloud sync for rural areas with poor connectivity.</p>
-        <p><strong>Tech:</strong> Flutter, Firebase</p>
-      </div>
-      <div class="project-item">
-        <h3>Document Processing Automation</h3>
-        <p>System that extracts key data from scanned documents, validates it against business rules, and integrates with existing databases.</p>
-        <p><strong>Tech:</strong> Python, OpenCV, Tesseract OCR</p>
-      </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-primary z-40 transform translate-x-full transition-transform md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="#about" class="mobile-link hover:text-accent">About</a>
+            <a href="#skills" class="mobile-link hover:text-accent">Skills</a>
+            <a href="#projects" class="mobile-link hover:text-accent">Projects</a>
+            <a href="#contact" class="mobile-link hover:text-accent">Contact</a>
+        </div>
     </div>
-  </div>
 
-  <div class="stack-section">
-    <h2>Tech Stack</h2>
-    <div class="stack-grid">
-      <div class="stack-item"data-aos="zoom-in">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
-        <span>HTML</span>
-      </div>
-      <div class="stack-item" data-aos="zoom-in">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
-        <span>CSS</span>
-      </div>
-      <div class="stack-item" data-aos="zoom-in">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-        <span>JavaScript</span>
-      </div>
-      <div class="stack-item" data-aos="zoom-in">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg" alt="Godot">
-        <span>Godot</span>
-      </div>
-      <div class="stack-item" data-aos="zoom-in">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter">
-        <span>Flutter</span>
-      </div>
-      <div class="stack-item" data-aos="zoom-in">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-        <span>Python</span>
-      </div>
-    </div>
-  </div>
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Hero Section -->
+    <section class="min-h-screen gradient-bg flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="floating absolute top-20 left-10 w-20 h-20 bg-accent rounded-full"></div>
+            <div class="floating absolute top-40 right-20 w-16 h-16 bg-highlight rounded-full" style="animation-delay: -2s;"></div>
+            <div class="floating absolute bottom-20 left-1/4 w-12 h-12 bg-accent rounded-full" style="animation-delay: -4s;"></div>
+        </div>
+        
+        <div class="text-center z-10 px-6 max-w-5xl mx-auto">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
+                <span class="text-white">Abdullah</span>
+                <span class="text-accent">Akhtar</span>
+            </h1>
+            <div class="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-10 h-10 flex justify-center items-center">
+                <span id="typingText" class="typing-animation"></span>
+            </div>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-16 leading-relaxed px-4">
+                Full Stack Developer crafting robust applications with AI integration, 
+                scalable architectures, and modern technologies. Building solutions that 
+                solve real problems and deliver measurable results.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#projects" class="bg-accent hover:bg-blue-600 px-10 py-5 rounded-lg font-semibold transition-all glow text-lg min-w-[200px]">
+                    View My Work
+                </a>
+                <a href="#contact" class="border-2 border-accent text-accent hover:bg-accent hover:text-white px-10 py-5 rounded-lg font-semibold transition-all text-lg min-w-[200px]">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-accent">About Me</h2>
+                <div class="w-24 h-1 bg-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-semibold mb-6 text-white">Full Stack Developer & Software Engineer</h3>
+                        <div class="space-y-6 text-gray-300 leading-relaxed">
+                            <p class="text-lg">
+                                Experienced in building scalable applications across multiple platforms and technologies. 
+                                My expertise ranges from system-level programming to modern web applications, mobile apps, 
+                                and AI-powered solutions that solve complex real-world challenges.
+                            </p>
+                            <p class="text-lg">
+                                I focus on writing clean, maintainable code using modern development practices, 
+                                microservices patterns, and cloud technologies. My approach emphasizes performance, 
+                                scalability, and user experience to create solutions that make a tangible impact.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Education Section -->
+                    <div class="bg-primary/60 p-6 rounded-xl border border-accent/20">
+                        <h4 class="text-xl font-semibold text-accent mb-4 flex items-center gap-3">
+                            <i class="fas fa-graduation-cap text-2xl"></i>
+                            Education
+                        </h4>
+                        <div class="text-gray-300 space-y-2">
+                            <div class="text-lg font-medium text-white">Bachelor of Science in Computer Science</div>
+                            <div class="text-gray-400">Barani Institute of Information Technology</div>
+                            <div class="text-gray-400">Affiliated with PMAS Arid Agriculture University</div>
+                            <div class="text-accent font-semibold text-lg mt-3">CGPA: 3.8/4.0</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-accent">Core Competencies</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-medium">System Architecture</span>
+                            <span class="bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-medium">Cloud Computing</span>
+                            <span class="bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-medium">AI Integration</span>
+                            <span class="bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-medium">Performance Tuning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-primary p-8 rounded-xl border border-accent/20 h-fit">
+                    <h4 class="text-2xl font-semibold mb-8 text-accent text-center">Contact Information</h4>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 p-4 bg-secondary/50 rounded-lg">
+                            <i class="fas fa-phone text-accent text-xl w-6 text-center"></i>
+                            <div>
+                                <div class="text-sm text-gray-400">Phone</div>
+                                <div class="text-white font-medium">03115381762</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-secondary/50 rounded-lg">
+                            <i class="fas fa-envelope text-accent text-xl w-6 text-center"></i>
+                            <div>
+                                <div class="text-sm text-gray-400">Email</div>
+                                <div class="text-white font-medium">iamabdullahakhtar@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-secondary/50 rounded-lg">
+                            <i class="fas fa-globe text-accent text-xl w-6 text-center"></i>
+                            <div>
+                                <div class="text-sm text-gray-400">Availability</div>
+                                <div class="text-white font-medium">Remote & On-site</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-secondary/50 rounded-lg">
+                            <i class="fas fa-handshake text-accent text-xl w-6 text-center"></i>
+                            <div>
+                                <div class="text-sm text-gray-400">Status</div>
+                                <div class="text-white font-medium">Open to Collaborations</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script src="script.js"></script>
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-primary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-accent">Skills & Technologies</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    Comprehensive expertise across modern development stack with focus on scalable, maintainable solutions
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                <!-- Frontend Development -->
+                <div class="bg-secondary p-8 rounded-xl card-hover border border-accent/10 h-full">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-code text-2xl text-accent"></i>
+                        <h3 class="text-xl font-semibold text-accent">Frontend Development</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">HTML5/CSS3</span>
+                                <span class="text-accent text-sm font-semibold">Expert</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">JavaScript/TypeScript</span>
+                                <span class="text-accent text-sm font-semibold">Expert</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">React/Vue/Angular</span>
+                                <span class="text-accent text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Backend Development -->
+                <div class="bg-secondary p-8 rounded-xl card-hover border border-accent/10 h-full">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-server text-2xl text-accent"></i>
+                        <h3 class="text-xl font-semibold text-accent">Backend Development</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Node.js/Express</span>
+                                <span class="text-accent text-sm font-semibold">Expert</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Java/Spring Boot</span>
+                                <span class="text-accent text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">C#/.NET Core</span>
+                                <span class="text-accent text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</body>
+                <!-- Systems Programming -->
+                <div class="bg-secondary p-8 rounded-xl card-hover border border-accent/10 h-full">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-microchip text-2xl text-accent"></i>
+                        <h3 class="text-xl font-semibold text-accent">Systems Programming</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">C++</span>
+                                <span class="text-accent text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Python</span>
+                                <span class="text-accent text-sm font-semibold">Expert</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Database Design</span>
+                                <span class="text-accent text-sm font-semibold">Expert</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile & Game Development -->
+                <div class="bg-secondary p-8 rounded-xl card-hover border border-accent/10 h-full">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-mobile-alt text-2xl text-accent"></i>
+                        <h3 class="text-xl font-semibold text-accent">Mobile & Game Dev</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Flutter/Dart</span>
+                                <span class="text-accent text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Unity/Godot</span>
+                                <span class="text-accent text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Android Native</span>
+                                <span class="text-accent text-sm font-semibold">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & Cloud -->
+                <div class="bg-secondary p-8 rounded-xl card-hover border border-accent/10 h-full">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-cloud text-2xl text-accent"></i>
+                        <h3 class="text-xl font-semibold text-accent">AI & Cloud Technologies</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">OpenAI APIs</span>
+                                <span class="text-accent text-sm font-semibold">Expert</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">AWS/Azure</span>
+                                <span class="text-accent text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Machine Learning</span>
+                                <span class="text-accent text-sm font-semibold">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Tools -->
+                <div class="bg-secondary p-8 rounded-xl card-hover border border-accent/10 h-full">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-tools text-2xl text-accent"></i>
+                        <h3 class="text-xl font-semibold text-accent">DevOps & Tools</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Docker/Kubernetes</span>
+                                <span class="text-accent text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">CI/CD Pipelines</span>
+                                <span class="text-accent text-sm font-semibold">Advanced</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium">Git/Version Control</span>
+                                <span class="text-accent text-sm font-semibold">Expert</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-accent to-blue-400 h-3 rounded-full skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack Icons -->
+            <div class="text-center">
+                <h3 class="text-2xl md:text-3xl font-semibold mb-12 text-accent">Technology Stack</h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10 gap-6 max-w-6xl mx-auto">
+                    <div class="bg-secondary p-6 rounded-xl card-hover border border-accent/10 flex flex-col items-center">
+                        <i class="fab fa-html5 text-4xl mb-3 text-orange-500"></i>
+                        <div class="text-sm font-medium">HTML/CSS/JS</div>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-xl card-hover border border-accent/10 flex flex-col items-center">
+                        <i class="fab fa-react text-4xl mb-3 text-blue-400"></i>
+                        <div class="text-sm font-medium">React</div>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-xl card-hover border border-accent/10 flex flex-col items-center">
+                        <i class="fab fa-node-js text-4xl mb-3 text-green-500"></i>
+                        <div class="text-sm font-medium">Node.js</div>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-xl card-hover border border-accent/10 flex flex-col items-center">
+                        <i class="fab fa-java text-4xl mb-3 text-red-500"></i>
+                        <div class="text-sm font-medium">Java</div>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-xl card-hover border border-accent/10 flex flex-col items-center">
+                        <i class="fas fa-code text-4xl mb-3 text-purple-500"></i>
+                        <div class="text-sm font-medium">C#</div>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-xl card-hover border border-accent/10 flex flex-col items-center">
+                        <i class="fas fa-bolt text-4xl mb-3 text-yellow-500"></i>
+                        <div class="text-sm font-medium">C++</div>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-xl card-hover border border-accent/10 flex flex-col items-center">
+                        <i class="fab fa-python text-4xl mb-3 text-blue-500"></i>
+                        <div class="text-sm font-medium">Python</div>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-xl card-hover border border-accent/10 flex flex-col items-center">
+                        <i class="fas fa-mobile-alt text-4xl mb-3 text-cyan-500"></i>
+                        <div class="text-sm font-medium">Flutter</div>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-xl card-hover border border-accent/10 flex flex-col items-center">
+                        <i class="fas fa-gamepad text-4xl mb-3 text-indigo-500"></i>
+                        <div class="text-sm font-medium">Unity</div>
+                    </div>
+                    <div class="bg-secondary p-6 rounded-xl card-hover border border-accent/10 flex flex-col items-center">
+                        <i class="fas fa-brain text-4xl mb-3 text-pink-500"></i>
+                        <div class="text-sm font-medium">AI/ML</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-secondary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-accent">Key Projects</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    Showcasing innovative solutions that demonstrate technical expertise and real-world impact
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Inventory Management System -->
+                <div class="bg-primary p-8 rounded-xl card-hover border border-accent/10 h-full flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-accent/20 p-3 rounded-lg">
+                            <i class="fas fa-chart-bar text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-accent">Inventory Management System</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed flex-grow">
+                        Real-time inventory tracking system with automated alerts, sales reporting, 
+                        and multi-location support. Reduced inventory errors by 40% for local retailers.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">Node.js</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">MongoDB</span>
+                        </div>
+                        <div class="text-sm text-gray-400 bg-secondary/50 p-3 rounded-lg">
+                            <strong class="text-accent">Impact:</strong> 40% error reduction, automated workflows
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Health Monitoring System -->
+                <div class="bg-primary p-8 rounded-xl card-hover border border-accent/10 h-full flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-red-500/20 p-3 rounded-lg">
+                            <i class="fas fa-heartbeat text-2xl text-red-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-accent">Health Monitoring System</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed flex-grow">
+                        Comprehensive health monitoring platform with IoT device integration, predictive analytics, 
+                        automated report generation, and real-time patient alerts. Streamlines healthcare workflows.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">Java Spring</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">Python ML</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">PostgreSQL</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">AWS IoT</span>
+                        </div>
+                        <div class="text-sm text-gray-400 bg-secondary/50 p-3 rounded-lg">
+                            <strong class="text-accent">Features:</strong> IoT integration, ML predictions, automated alerts
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Procedural Game Map Generator -->
+                <div class="bg-primary p-8 rounded-xl card-hover border border-accent/10 h-full flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-green-500/20 p-3 rounded-lg">
+                            <i class="fas fa-map text-2xl text-green-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-accent">Procedural Game Map Generator</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed flex-grow">
+                        Algorithm that generates unique 2D game maps with balanced terrain distribution, 
+                        pathfinding optimization, and customizable biome systems for game developers.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">Godot</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">GDScript</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">C++</span>
+                        </div>
+                        <div class="text-sm text-gray-400 bg-secondary/50 p-3 rounded-lg">
+                            <strong class="text-accent">Innovation:</strong> Balanced terrain, pathfinding-ready layouts
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Farm Management App -->
+                <div class="bg-primary p-8 rounded-xl card-hover border border-accent/10 h-full flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-green-600/20 p-3 rounded-lg">
+                            <i class="fas fa-seedling text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-accent">Mobile Farm Management App</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed flex-grow">
+                        Helps small farmers track crop cycles, expenses, and yields with offline capability 
+                        and cloud sync for rural areas with poor connectivity.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">Flutter</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">Firebase</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">SQLite</span>
+                        </div>
+                        <div class="text-sm text-gray-400 bg-secondary/50 p-3 rounded-lg">
+                            <strong class="text-accent">Features:</strong> Offline-first, cloud sync, rural connectivity
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Processing Automation -->
+                <div class="bg-primary p-8 rounded-xl card-hover border border-accent/10 h-full flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-blue-400/20 p-3 rounded-lg">
+                            <i class="fas fa-file-alt text-2xl text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-accent">Document Processing Automation</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed flex-grow">
+                        System that extracts key data from scanned documents, validates against business rules, 
+                        and integrates with existing databases using OCR and machine learning.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">OpenCV</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">Tesseract OCR</span>
+                        </div>
+                        <div class="text-sm text-gray-400 bg-secondary/50 p-3 rounded-lg">
+                            <strong class="text-accent">Automation:</strong> OCR extraction, validation, database integration
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-commerce Platform -->
+                <div class="bg-primary p-8 rounded-xl card-hover border border-accent/10 h-full flex flex-col">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-purple-500/20 p-3 rounded-lg">
+                            <i class="fas fa-shopping-cart text-2xl text-purple-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-accent">Scalable E-commerce Platform</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed flex-grow">
+                        Full-featured e-commerce solution with payment integration, inventory management, 
+                        order tracking, and analytics dashboard. Built with microservices architecture.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">C#/.NET</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">React</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">SQL Server</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium">Docker</span>
+                        </div>
+                        <div class="text-sm text-gray-400 bg-secondary/50 p-3 rounded-lg">
+                            <strong class="text-accent">Architecture:</strong> Microservices, payment gateway, real-time tracking
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-primary">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-accent">Let's Build Something Amazing</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Ready to transform your ideas into powerful, scalable solutions? 
+                    Let's discuss how we can work together to achieve your goals.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div class="bg-secondary p-8 rounded-xl border border-accent/10">
+                    <h3 class="text-2xl font-semibold mb-8 text-accent text-center">Get In Touch</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 p-4 bg-primary/50 rounded-lg">
+                            <div class="bg-accent/20 p-3 rounded-lg">
+                                <i class="fas fa-phone text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-400">Phone</div>
+                                <div class="text-white font-medium text-lg">03115381762</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-primary/50 rounded-lg">
+                            <div class="bg-accent/20 p-3 rounded-lg">
+                                <i class="fas fa-envelope text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-400">Email</div>
+                                <div class="text-white font-medium text-lg">iamabdullahakhtar@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-primary/50 rounded-lg">
+                            <div class="bg-accent/20 p-3 rounded-lg">
+                                <i class="fas fa-briefcase text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-400">Status</div>
+                                <div class="text-white font-medium text-lg">Available for Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-secondary p-8 rounded-xl border border-accent/10">
+                    <h3 class="text-2xl font-semibold mb-8 text-accent text-center">Collaboration Areas</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3 p-3 bg-primary/30 rounded-lg">
+                            <i class="fas fa-code text-accent"></i>
+                            <span class="font-medium">Full Stack Web Development</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-primary/30 rounded-lg">
+                            <i class="fas fa-brain text-accent"></i>
+                            <span class="font-medium">AI/ML Integration & Automation</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-primary/30 rounded-lg">
+                            <i class="fas fa-mobile-alt text-accent"></i>
+                            <span class="font-medium">Mobile App Development</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-primary/30 rounded-lg">
+                            <i class="fas fa-gamepad text-accent"></i>
+                            <span class="font-medium">Game Development & Design</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-primary/30 rounded-lg">
+                            <i class="fas fa-cogs text-accent"></i>
+                            <span class="font-medium">System Architecture & Optimization</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-primary/30 rounded-lg">
+                            <i class="fas fa-users text-accent"></i>
+                            <span class="font-medium">Technical Consulting & Code Review</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="mailto:iamabdullahakhtar@gmail.com" class="bg-accent hover:bg-blue-600 px-10 py-5 rounded-lg font-semibold transition-all glow text-lg min-w-[200px]">
+                        Start a Project
+                    </a>
+                    <a href="tel:03115381762" class="border-2 border-accent text-accent hover:bg-accent hover:text-white px-10 py-5 rounded-lg font-semibold transition-all text-lg min-w-[200px]">
+                        Schedule a Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary py-8 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-400">
+                © 2024 Abdullah Akhtar. Building innovative solutions with modern technology.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Typing animation
+        const texts = [
+            "Full Stack Developer",
+            "Software Engineer", 
+            "AI Integration Specialist",
+            "Mobile App Developer",
+            "Game Development Engineer"
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typingText');
+
+        function typeText() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeText, typeSpeed);
+        }
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Skill bar animation on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    skillBars.forEach(bar => {
+                        bar.style.width = bar.style.width || '0%';
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('#skills .card-hover').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Initialize typing animation
+        typeText();
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-primary');
+            } else {
+                nav.classList.remove('bg-primary');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97fa119e719f9074',t:'MTc1Nzk1OTcwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
-
-
